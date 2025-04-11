@@ -4,10 +4,11 @@
 - **Disciplina**: Inteligência Artificial IEC034/ICC265 - 2025/1  
 - **Curso**: Ciência/Engenharia da Computação - Turmas CO01 e CB500  
 - **Integrantes**:
-  - Jessica de Figueredo Colares - 22060036
+  - Jéssica de Figueredo Colares - 22060036
   - Antonio Mileysson França Bragança - 21850963
   - Luís Eduardo Bentes Negreiros - 22251141
   - Lucas Vinícius Gonçalves Gadelha - 22050517
+  - Gilmar Eduardo Costa do Couto Júnior - 22152247
 ## Explicação da atividade 
 ### 1. Analisar o código abaixo em Prolog  que não está funcionando, e explicar porque não funciona.
 
@@ -183,4 +184,6 @@ No nosso caso, a solução encontrada foi:
 <img src="assets/teste_codigo_planejamento_sudoku.png" alt="Solução 5" width="500"/>
 
 
+### 4. Estudar o método Goal regression, e explicar a diferença para means-ends
 
+### 5. Implementar goal regression

@@ -167,6 +167,8 @@ No código aparece `•` em vez de `-`, o que quebraria a execução.
 ```prolog
 NextPos is Pos - 1,
 ```
+---
+
 ### 3. Implementar a mudança e mostrar funcionando
 Feita as correções, que estão implementadas no código sudoku_with_plan.pl, um possível exemplo que poderia ser testado seria:
 
@@ -182,8 +184,32 @@ Feita as correções, que estão implementadas no código sudoku_with_plan.pl, u
 No nosso caso, a solução encontrada foi:
 
 <img src="assets/teste_codigo_planejamento_sudoku.png" alt="Solução 5" width="500"/>
-
+---
 
 ### 4. Estudar o método Goal regression, e explicar a diferença para means-ends
+
+#### O que é o Método Goal Regression?
+
+O **Goal Regression** (ou **Regressão de Metas**, em português) é um método utilizado principalmente em **Planejamento de Inteligência Artificial**. É um método de planejamento clássico em Inteligência Artificial, usado para encontrar uma sequência de ações que leve de um estado inicial a um estado objetivo. Nele ao invés de partir do estado inicial e tentar construir um caminho até o objetivo (como em buscas progressivas), a **Goal Regression** faz o **caminho inverso**: ela parte do **objetivo** e vai "regredindo" até chegar ao **estado inicial**.
+
+#### O que é o Método Means End
+
+O **Método Means-End Analysis** (Análise Meios-Fins) é uma técnica clássica de resolução de problemas e planejamento em IA, popularizada pelo sistema. Ele combina elementos de **busca progressiva (forward)** e **regressiva (backward)** para reduzir gradualmente a diferença (_gap_) entre o estado atual e o objetivo, selecionando ações específicas que aproximem o sistema da meta desejada.
+
+#### Comparando os Métodos
+
+|**Critério**|**Goal Regression**            |**Means-End**                |
+|---------------------|-------------------------------|-----------------------------|
+|**Direção da Busca**|De trás pra frente (da meta ao estado inicial)|Alterna entre avanço (para verificar pré-condições) e retrocesso (para reduzir diferenças)|
+|**Foco**|Atingir os pré-requisitos da meta|Reduzir a diferença entre estado atual e meta|
+|**Quando usar**|Quando se tem uma meta clara e ações bem definidas|Quando se quer explorar opções guiadas por heurísticas|
+|**Conflitos**|Dificuldade em lidar com ações que removem pré-condições de outras (como efeitos colaterais negativos)|Mais flexível, permitindo o ajuste da ordem das ações ou a inserção de novas para resolver conflitos|
+|**Vantagens**|Foco no objetivo final, evita caminhos inúteis|Flexível, adapta bem a problemas com múltiplos caminhos|
+|**Desvantagens**|Pode ser difícil regredir certos objetivos|Pode se perder sem boas heurísticas|
+|**Exemplo clássico**|Planejamento STRIPS|Sistema GPS da Newell & Simon (IA clássica)|
+
+---
+
+
 
 ### 5. Implementar goal regression

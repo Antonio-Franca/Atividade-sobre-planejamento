@@ -4,11 +4,14 @@
 - **Disciplina**: Inteligência Artificial IEC034/ICC265 - 2025/1  
 - **Curso**: Ciência/Engenharia da Computação - Turmas CO01 e CB500  
 - **Integrantes**:
-  - Jéssica de Figueredo Colares - 22060036
   - Antonio Mileysson França Bragança - 21850963
+  - Gilmar Eduardo Costa do Couto Júnior - 22152247
+  - Gabrielly Ferreira Rodrigues - 22152262
+  - Jéssica de Figueredo Colares - 22060036
   - Luís Eduardo Bentes Negreiros - 22251141
   - Lucas Vinícius Gonçalves Gadelha - 22050517
-  - Gilmar Eduardo Costa do Couto Júnior - 22152247
+
+
 ## Explicação da atividade 
 ### 1. Analisar o código abaixo em Prolog  que não está funcionando, e explicar porque não funciona.
 
@@ -184,6 +187,7 @@ Feita as correções, que estão implementadas no código sudoku_with_plan.pl, u
 No nosso caso, a solução encontrada foi:
 
 <img src="assets/teste_codigo_planejamento_sudoku.png" alt="Solução 5" width="500"/>
+
 ---
 
 ### 4. Estudar o método Goal regression, e explicar a diferença para means-ends
@@ -211,5 +215,60 @@ O **Método Means-End Analysis** (Análise Meios-Fins) é uma técnica clássica
 ---
 
 
-
 ### 5. Implementar goal regression
+
+#### **Descrição do Problema**
+
+O problema consiste em transformar um **estado final** (uma matriz 4x4 preenchida com números) em um **estado inicial** (uma matriz 4x4 vazia, representada por zeros). Para isso, o algoritmo remove números das células preenchidas de forma aleatória até que o estado inicial seja alcançado. Cada remoção é registrada como parte de um plano de ações.
+
+---
+
+#### **Funcionalidades Principais**
+
+1. **Seleção Aleatória de Células Preenchidas**:
+   - O algoritmo identifica todas as células preenchidas no estado atual e escolhe uma delas aleatoriamente para remover o número.
+
+2. **Backtracking Controlado**:
+   - Se uma escolha aleatória levar a um caminho sem solução, o backtracking garante que outras opções sejam exploradas.
+
+3. **Eficiência**:
+   - A lista de células preenchidas é atualizada dinamicamente, evitando repetições desnecessárias.
+
+4. **Modularidade**:
+   - O código é organizado em funções independentes, facilitando a manutenção e extensão.
+
+---
+
+
+#### **Entradas**
+- `FinalState`: Uma matriz 4x4 representando o estado final.
+- `InitialState`: Uma matriz 4x4 representando o estado inicial (geralmente composta por zeros).
+
+### **Saída**
+- `Plan`: Uma lista de ações no formato `remove(Row, Col, Num)`, onde:
+  - `Row` e `Col` são as coordenadas da célula.
+  - `Num` é o número removido.
+
+---
+
+### **Exemplo de Uso**
+
+#### **Consulta**
+```prolog
+
+?- FinalState = [[1,2,3,4],
+              [3,4,1,2],
+              [2,3,4,1],
+              [4,1,2,3]],
+  goal_regression_plan(FinalState, InitialState, Plan).
+```
+
+#### **Resultado Esperado**
+```prolog
+Plan = [remove(3, 2, 3), remove(2, 4, 2), ..., remove(1, 3, 1)].
+```
+---
+#### **Resultado Obtido**
+No nosso caso, a solução encontrada foi:
+
+<img src="assets/teste_codigo_goal_regression.png" alt="Solução 5" width="500"/>

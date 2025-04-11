@@ -186,7 +186,7 @@ Feita as correções, que estão implementadas no código sudoku_with_plan.pl, u
 ```
 No nosso caso, a solução encontrada foi:
 
-<img src="assets/teste_codigo_planejamento_sudoku.png" alt="Solução 5" width="500"/>
+<img src="assets/teste_codigo_planejamento_sudoku.png" alt="Código de planejamento" width="500"/>
 
 ---
 
@@ -271,4 +271,4 @@ Plan = [remove(3, 2, 3), remove(2, 4, 2), ..., remove(1, 3, 1)].
 #### **Resultado Obtido**
 No nosso caso, a solução encontrada foi:
 
-<img src="assets/teste_codigo_goal_regression.png" alt="Solução 5" width="500"/>
+<img src="assets/teste_codigo_goal_regression.png" alt="teste de goal regression" width="500"/>

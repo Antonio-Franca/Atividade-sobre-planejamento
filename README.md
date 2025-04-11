@@ -9,7 +9,7 @@
   - Luís Eduardo Bentes Negreiros - 22251141
   - Lucas Vinícius Gonçalves Gadelha - 22050517
 ## Explicação da atividade 
-#### 1. Analisar o código abaixo em Prolog  que não está funcionando, e explicar porque não funciona.
+### 1. Analisar o código abaixo em Prolog  que não está funcionando, e explicar porque não funciona.
 
 ```prolog
 % Define numbers 1-4
@@ -92,7 +92,7 @@ fill(4, 1, 3), fill(4, 2, 1), fill(4, 3, 2)
 
 O código apresentado é um programa em Prolog que resolve um puzzle Sudoku 4x4, gerando um plano de ações para preencher uma grade inicial vazia (com zeros) até uma solução completa. Para a realização dessa atividade, foi utilizado um chatbot: o **ChatGPT**.
 
-### **1. Base de Números Permitidos**
+#### **1. Base de Números Permitidos**
 ```prolog
 num(1). num(2). num(3). num(4).
 ```
@@ -100,7 +100,7 @@ Define que os únicos números válidos para preenchimento são 1 a 4.
 
 ---
 
-### **2. Predicado Principal: `plan/3`**
+#### **2. Predicado Principal: `plan/3`**
 ```prolog
 plan(InitialState, FinalState, Plan)
 ```
@@ -109,14 +109,14 @@ plan(InitialState, FinalState, Plan)
 
 ---
 
-### **3. Predicado Recursivo: `plan_step/4`**
+#### **3. Predicado Recursivo: `plan_step/4`**
 Responsável por preencher célula por célula, de forma **recursiva**:
 - **Caso base:** quando o estado atual já é igual ao final.
 - **Caso recursivo:** encontra uma célula vazia (`0`), tenta preencher com um número válido (1-4), verifica se não há conflitos (linha, coluna, subgrade), preenche, adiciona a ação no plano, e continua.
 
 ---
 
-### **4. Restrições: `is_valid/4`**
+#### **4. Restrições: `is_valid/4`**
 Garante que o número inserido não viole as regras:
 - **Linha:** o número não pode se repetir.
 - **Coluna:** idem.
@@ -124,7 +124,7 @@ Garante que o número inserido não viole as regras:
 
 ---
 
-### **5. Subgrade 2x2**
+#### **5. Subgrade 2x2**
 ```prolog
 subgrid(State, Row, Col, Subgrid)
 ```
@@ -132,7 +132,7 @@ Calcula a subgrade de 2x2 a partir da célula atual. Exemplo: se `(Row, Col) = (
 
 ---
 
-### **6. Mutação de Estado**
+#### **6. Mutação de Estado**
 ```prolog
 fill_cell/5` e `replace/4`
 ```
@@ -140,7 +140,7 @@ Realiza a substituição do valor em uma célula, criando um novo estado.
 
 ---
 
-### **Exemplo de Execução**
+#### **Exemplo de Execução**
 ```prolog
 plan(InitialState, FinalState, Plan).
 ```
@@ -150,7 +150,9 @@ Supondo que o `InitialState` tem algumas células com `0`, o sistema preenche os
 
 ---
 
-### **Correções no Código**
+### 2. Indicar como pode ser alterado para funcionar 
+
+#### **Correções no Código**
 Há alguns erros de digitação no código fornecido:
 
 1. Em `subgrid/3`:
@@ -164,7 +166,8 @@ No código aparece `•` em vez de `-`, o que quebraria a execução.
 ```prolog
 NextPos is Pos - 1,
 ```
-Feita as correções um possível exemplo que poderia ser testado seria:
+### 3. Implementar a mudança e mostrar funcionando
+Feita as correções, que estão implementadas no código sudoku_with_plan.pl, um possível exemplo que poderia ser testado seria:
 
 ```prolog
 ?- InitialState = [
